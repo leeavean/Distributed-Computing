@@ -1,0 +1,67 @@
+﻿<Page x:Class="WpfApp1.RoomPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Room">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Chat area -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Back button + Room label -->
+                <RowDefinition Height="*"/>
+                <!-- Messages ListBox stretches -->
+                <RowDefinition Height="Auto"/>
+                <!-- Input row -->
+            </Grid.RowDefinitions>
+
+            <!-- Back button + room label -->
+            <StackPanel Orientation="Horizontal" Grid.Row="0" VerticalAlignment="Center">
+                <Button Content="Leave Room" Width="76" Click="btnBack_Click" Margin="0,0,10,0"/>
+                <TextBlock x:Name="lblRoomName"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"
+                           Text="Room Name Here" />
+            </StackPanel>
+
+            <ListBox x:Name="lstMessages" Grid.Row="1" Margin="0,6,0,6"/>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <TextBox x:Name="txtMessage" Width="300" Height="30"/>
+                <Button Content="Send" Click="btnSend_Click" Width="80" Height="30" Margin="4,0,0,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Users and Files -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!-- Users ListBox stretches -->
+                <RowDefinition Height="Auto"/>
+                <!-- Files and buttons -->
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Users" FontWeight="Bold"/>
+                <ListBox x:Name="lstUsers" Margin="0,4,0,10" DisplayMemberPath="Username"
+                         MouseDoubleClick="lstUsers_MouseDoubleClick"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Files" FontWeight="Bold"/>
+                <ListBox x:Name="lstFiles" Margin="0,4,0,6"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Upload" Click="btnUpload_Click" Width="80"/>
+                    <Button Content="Download" Click="btnDownload_Click" Width="80" Margin="6,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

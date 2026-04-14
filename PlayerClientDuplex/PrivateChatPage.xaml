@@ -1,0 +1,48 @@
+﻿<Page x:Class="PlayerClientDuplex.PrivateChatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:PlayerClientDuplex"
+      Title="Private Chat"
+      Width="700" Height="500">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Back button -->
+            <RowDefinition Height="Auto"/>
+            <!-- Chat title -->
+            <RowDefinition Height="*"/>
+            <!-- Messages + Users -->
+            <RowDefinition Height="Auto"/>
+            <!-- Input row -->
+        </Grid.RowDefinitions>
+
+        <!-- Back button -->
+        <Button Content="Back" Width="60" Height="30" Grid.Row="0" Click="btnBack_Click" Margin="0,0,0,10"/>
+
+        <!-- Chat title -->
+        <Label x:Name="lblChatTitle" FontSize="16" FontWeight="Bold" Grid.Row="1" Margin="0,0,0,10"/>
+
+        <!-- Messages + Users -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <!-- Messages -->
+                <ColumnDefinition Width="1*"/>
+                <!-- Users -->
+            </Grid.ColumnDefinitions>
+
+            <!-- Messages list -->
+            <ListBox x:Name="lstMessages" Grid.Column="0" Margin="0,0,10,0"/>
+
+            <!-- Users list -->
+            <ListBox x:Name="lstUsers" Grid.Column="1"/>
+        </Grid>
+
+        <!-- Input row -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBox x:Name="txtMessage" MinWidth="200" Height="30" HorizontalAlignment="Stretch"/>
+            <Button x:Name="btnSend" Content="Send" Click="OnSendClicked" Width="80" Height="30" Margin="4,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Page>
